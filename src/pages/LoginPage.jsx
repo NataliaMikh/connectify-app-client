@@ -8,14 +8,41 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-export default function SignIn() {
+import config from "../config/config";
+
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const API_URL = config.API_URL;
+
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    const body = { email, password };
+
+    axios
+      .post(`${API_URL}/auth/login`, body)
+      .then((response) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("There is an error Logging in.", error);
+      });
+    // const data = new FormData(event.currentTarget);
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
 
   return (
@@ -44,6 +71,8 @@ export default function SignIn() {
             id="email"
             label="Email Address"
             name="email"
+            value={email}
+            onChange={handleEmail}
             autoComplete="email"
             autoFocus
           />
@@ -52,6 +81,8 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
+            value={password}
+            onChange={handlePassword}
             label="Password"
             type="password"
             id="password"
