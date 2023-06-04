@@ -38,7 +38,7 @@ export default function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate("/");
+        navigate("/chatpage");
       })
       .catch((error) => {
         console.log("There is an error Logging in.", error);
