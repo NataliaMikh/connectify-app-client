@@ -10,9 +10,10 @@ import Container from "@mui/material/Container";
 
 import config from "../config/config";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 const API_URL = config.API_URL;
 
@@ -21,6 +22,8 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -33,6 +36,8 @@ export default function LoginPage() {
     axios
       .post(`${API_URL}/auth/login`, body)
       .then((response) => {
+        storeToken(response.data.authToken);
+        authenticateUser();
         navigate("/");
       })
       .catch((error) => {
