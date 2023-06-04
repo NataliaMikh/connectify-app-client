@@ -6,9 +6,9 @@ import config from "../config/config";
 
 const API_URL = config.API_URL;
 
-export const AuthContext = React.createContext();
+const AuthContext = React.createContext();
 
-export default function AuthProviderWrapper(props) {
+function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -63,3 +63,5 @@ export default function AuthProviderWrapper(props) {
     </AuthContext.Provider>
   );
 }
+
+export { AuthProviderWrapper, AuthContext };

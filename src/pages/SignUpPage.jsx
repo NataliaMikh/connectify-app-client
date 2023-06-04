@@ -32,5 +32,9 @@ export default function SignUpPage() {
         console.log("There is an error creating a new user!", error);
       });
   };
-  return <div>SignUpPage</div>;
+  return (
+    <div>
+      <h2>Create an account!</h2>
+    </div>
+  );
 }
