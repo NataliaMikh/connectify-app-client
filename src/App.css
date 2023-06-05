@@ -1,0 +1,24 @@
+body {
+  position: cover;
+  background: linear-gradient(207.92deg, #3b25ac 4.42%, #1b0f51 82.68%);
+}
+.rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftSide {
+  background-size: cover;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 22px;
+
+  background: linear-gradient(89.12deg, #9721f3 27.66%, #2136f3 91.42%);
+  border-radius: 30px;
+}

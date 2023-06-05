@@ -1,3 +1,8 @@
+import "bootstrap/dist/css/bootstrap.css";
+import { Row, Col } from "react-bootstrap";
+import LeftSide from "../components/LeftSide";
+import RightSide from "../components/RightSide";
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -34,7 +39,14 @@ export default function SignUpPage() {
   };
   return (
     <div>
-      <h2>Create an account!</h2>
+      <Row className="landing">
+        <Col>
+          <LeftSide></LeftSide>
+        </Col>
+        <Col>
+          <RightSide></RightSide>
+        </Col>
+      </Row>
     </div>
   );
 }
