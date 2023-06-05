@@ -4,7 +4,7 @@ import { Image } from "react-bootstrap";
 function LeftSide() {
   return (
     <div className="leftSide">
-      <Image fluid src="/img/bg1.jpg" />
+      <Image style={{imageSize: "cover"}} fluid src="/img/bg1.png" />
     </div>
   );
 }

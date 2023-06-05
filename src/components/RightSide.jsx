@@ -6,7 +6,7 @@ function RightSide() {
     <div className="rightSide">
       <Form
         style={{
-          width: "50%",
+          width: "70%",
           margin: "20%",
           alignItems: "center",
           justifyContent: "center",
@@ -14,7 +14,7 @@ function RightSide() {
       >
         <h5 style={{ color: "white" }}>Welcome to</h5>
         <img style={{ width: "180px" }} src="/img/logo.svg" alt="" />
-        <h4 style={{ color: "white", marginTop: "100px" }}>Sign Up</h4>
+        <h4 style={{ color: "white", marginTop: "30px" }}>Sign Up</h4>
         <Form.Control type="text" placeholder="Name" />
         <br />
         <Form.Control type="text" placeholder="Email" />
