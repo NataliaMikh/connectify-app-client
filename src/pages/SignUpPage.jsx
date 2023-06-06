@@ -1,12 +1,10 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { Row, Col } from "react-bootstrap";
-import LeftSide from "../components/LeftSide";
-import RightSide from "../components/RightSide";
-
+import { Row, Col, Form, Button,  Container } from "react-bootstrap";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import config from "../config/config";
+import LeftSide from "../components/LeftSide";
 
 const API_URL = config.API_URL;
 
@@ -38,15 +36,59 @@ export default function SignUpPage() {
       });
   };
   return (
-    <div>
-      <Row className="landing">
+    <Container>
+      <Row>
         <Col>
           <LeftSide></LeftSide>
         </Col>
-        <Col>
-          <RightSide></RightSide>
+
+        <Col style={{ height: "100hv" }}>
+          <Form
+            onSubmit={handleSubmit}
+            style={{
+              width: "50%",
+              margin: "20%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <h5 style={{ color: "white" }}>Welcome to</h5>
+            <img style={{ width: "180px" }} src="/img/logo.svg" alt="" />
+            <h4 style={{ color: "white", marginTop: "70px" }}>Sign Up</h4>
+
+            <Form.Control
+              style={{ borderRadius: "30px" }}
+              type="text"
+              placeholder="Name"
+            />
+            <br />
+            <Form.Control
+              style={{ borderRadius: "30px" }}
+              type="text"
+              placeholder="Email"
+            />
+            <br />
+            <Form.Control
+              style={{ borderRadius: "30px" }}
+              type="text"
+              placeholder="Password"
+            />
+            <br />
+            <Button
+              className="button"
+              style={{
+                background:
+                  "linear-gradient(89.12deg, #9721f3 27.66%, #2136f3 91.42%)",
+                borderRadius: "30px",
+                width: "180px",
+              }}
+              type="submit"
+            >
+              Create account
+            </Button>
+          </Form>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 }

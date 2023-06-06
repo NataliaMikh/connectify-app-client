@@ -1,12 +1,6 @@
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import "bootstrap/dist/css/bootstrap.css";
+import { Row, Col, Form, Button, Container } from "react-bootstrap";
+import LeftSide from "../components/LeftSide";
 
 import config from "../config/config";
 
@@ -51,74 +45,72 @@ export default function LoginPage() {
   };
 
   return (
-    <Container component="main" maxWidth="sm">
-      <Box
-        xs={{
-          boxShadow: 3,
-          borderRadius: 2,
-          px: 4,
-          py: 6,
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            value={password}
-            onChange={handlePassword}
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+    <Container>
+      <Row>
+        <Col>
+          <LeftSide></LeftSide>
+        </Col>
+
+        <Col style={{ height: "100hv" }}>
+          <Form
+            onSubmit={handleSubmit}
+            noValidate
+            style={{
+              width: "50%",
+              margin: "20%",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
+            <h5 style={{ color: "white" }}>Welcome to</h5>
+            <img style={{ width: "180px" }} src="/img/logo.svg" alt="" />
+            <h4 style={{ color: "white", marginTop: "70px" }}>Sign Up</h4>
+
+            <Form.Control
+              style={{ borderRadius: "30px" }}
+              type="Email"
+              placeholder="Name"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              name="Email"
+              value={email}
+              autoComplete="Email"
+              autoFocus
+              onChange={handleEmail}
+            />
+            <br />
+            <Form.Control
+              style={{ borderRadius: "30px" }}
+              type="Password"
+              placeholder="Password"
+              margin="normal"
+              required
+              fullWidth
+              id="Password"
+              name="Password"
+              value={password}
+              autoComplete="Password"
+              autoFocus
+              onChange={handlePassword}
+            />
+            <br />
+            <Button
+              className="button"
+              style={{
+                background:
+                  "linear-gradient(89.12deg, #9721f3 27.66%, #2136f3 91.42%)",
+                borderRadius: "30px",
+                width: "180px",
+              }}
+              type="submit"
+            >
+              Log In
+            </Button>
+          </Form>
+        </Col>
+      </Row>
     </Container>
   );
 }

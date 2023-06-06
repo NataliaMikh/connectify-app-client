@@ -1,15 +1,6 @@
 body {
-  position: cover;
+  min-height: 100vh;
   background: linear-gradient(207.92deg, #3b25ac 4.42%, #1b0f51 82.68%);
-}
-.rightSide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.leftSide {
-  background-size: cover;
 }
 
 .button {
